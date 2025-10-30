@@ -1,49 +1,75 @@
-// src/components/header/Header.jsx
-import { motion } from 'framer-motion'
-import imagen1 from '../../assets/imagen1.jpg';
+import { useState } from "react";
 
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <header className="grid md:grid-cols-2 h-screen">
-      <div className="flex flex-col justify-center items-start px-10 md:px-20 space-y-6">
-        <motion.h1
-          className="text-4xl md:text-6xl font-bold leading-tight"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          We Are Your Trusted <span className="text-[#E41E26]">Car Care Experts</span>
-        </motion.h1>
+    <header className="absolute top-0 left-0 w-full z-50 text-white">
+      {/* 🔵 Barra superior */}
+      <div className="bg-[#002E6D] text-sm py-2 px-6 flex justify-between items-center">
+        <span className="font-medium">
+         Mobile Diesel Mechanic LLC.
+        </span>
+        <div className="flex items-center space-x-4">
+          
+          <div className="hidden md:flex items-center space-x-3">
+            <a href="#" className="hover:text-gray-300">Blog</a>
+            <a href="#" className="hover:text-gray-300">About</a>
+            <a href="#" className="hover:text-gray-300">Contact</a>
+            <a href="#" className="hover:text-gray-300">Follow:</a>
+            <div className="flex space-x-2">
+              <a href="#"><i className="fab fa-facebook-f"></i></a>
+              <a href="#"><i className="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <motion.p
-          className="text-lg text-gray-600 max-w-md"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          Your trusted mobile diesel mechanic — delivering expert service to your site, anytime, anywhere.
-        </motion.p>
+      {/* 🔴 Barra principal */}
+      <div className="backdrop-blur-sm bg-black/40 px-8 py-4 flex justify-between items-center">
+        {/* Logo */}
+        <div className="flex items-center space-x-3">
+          
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2 }}
+        {/* Menú Desktop */}
+        <nav className="hidden md:flex items-center space-x-8">
+          <a href="#" className="hover:text-[#E41E26] transition">Transmission Services</a>
+          <a href="#" className="hover:text-[#E41E26] transition">Auto Care & Repair</a>
+          <a href="#" className="hover:text-[#E41E26] transition">Fleet</a>
+          <a href="#" className="hover:text-[#E41E26] transition">Warranty</a>
+          <a href="#" className="hover:text-[#E41E26] transition">Careers</a>
+        </nav>
+
+        {/* Botón */}
+        <button className="hidden md:block bg-white text-[#E41E26] hover:bg-[#E41E26] hover:text-white px-5 py-2 rounded-lg font-semibold shadow-md transition">
+          Find My Mechanic
+        </button>
+
+        {/* Botón móvil */}
+        <button
+          className="md:hidden text-white"
+          onClick={() => setIsOpen(!isOpen)}
         >
-          <button className="bg-[#E41E26] hover:bg-[#C21A22] text-white px-6 py-3 text-lg rounded-2xl shadow-lg">
-            Mobile Diesel Mechanic LLC
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Menú móvil desplegable */}
+      {isOpen && (
+        <div className="md:hidden flex flex-col items-center bg-black/80 backdrop-blur-md text-white space-y-4 py-6">
+          <a href="#" className="hover:text-[#E41E26]">Transmission Services</a>
+          <a href="#" className="hover:text-[#E41E26]">Auto Care & Repair</a>
+          <a href="#" className="hover:text-[#E41E26]">Fleet</a>
+          <a href="#" className="hover:text-[#E41E26]">Warranty</a>
+          <a href="#" className="hover:text-[#E41E26]">Careers</a>
+          <button className="bg-[#E41E26] px-6 py-2 rounded-lg hover:bg-[#c11a1e] transition">
+            Find My Mechanic
           </button>
-        </motion.div>
-      </div>
-
-      <div className="relative hidden md:block">
-        <img
-          src={imagen1}
-          alt="AAMCO Service"
-          className="object-cover h-full w-full"
-        />
-        <div className="absolute inset-0 bg-[#002E6D]/40" />
-      </div>
+        </div>
+      )}
     </header>
-  )
+  );
 }
