@@ -22,7 +22,7 @@ export default function Header() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          At AAMCO, we put the care back into car care — trusted for over 50 years.
+          Your trusted mobile diesel mechanic — delivering expert service to your site, anytime, anywhere.
         </motion.p>
 
         <motion.div
