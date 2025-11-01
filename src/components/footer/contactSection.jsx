@@ -16,10 +16,10 @@ function ContactSection() {
           <div className="space-y-4">
             <h3 className="text-2xl font-semibold text-black">Get in Touch</h3>
             <p>
-              📍 <span className="font-medium">Location:</span> Boulder Denver, Co
+              📍 <span className="font-medium">Location:</span> 214 N 120th St, Lafayette, CO 80026
             </p>
             <p>
-              📞 <span className="font-medium">Owner’s Number:</span> +17204994345
+              📞 <span className="font-medium">Contact Number:</span> +17204994345
             </p>
             <p>
               🕒 <span className="font-medium">Available:</span> 24/7 Mobile Service

@@ -10,7 +10,7 @@ export default function Header() {
       {/* 🔵 Barra superior */}
       <div className="bg-[#002E6D] text-sm py-2 px-6 flex justify-between items-center">
         <span className="font-medium">
-         Mobile Diesel Mechanic LLC. Owner’s Number: +17204994345
+         Mobile Diesel Mechanic LLC. Contact Number: +17204994345
         </span>
         <div className="flex items-center space-x-4">
           
